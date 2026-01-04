@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name=""/>
+    <group name="General">
+        <entry name="url" type="String">
+            <default></default>
+        </entry>
+        <entry name="file" type="String">
+            <default></default>
+        </entry>
+        <entry name="islocal" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="interval" type="Int">
+            <default>-1</default>
+        </entry>
+        <entry name="allowInsecure" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="allowRemoteAccess" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="ignoreCertificateErrors" type="Bool">
+            <default>false</default>
+        </entry>
+    </group>
+    <group name="Appearance">
+        <entry name="background" type="Int">
+            <default>StandardBackground</default>
+        </entry>
+        <entry name="scale" type="Int">
+            <default>100</default>
+        </entry>
+        <entry name="showScrollBars" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="forceTransparent" type="Bool">
+            <default>false</default>
+        </entry>
+    </group>
+</kcfg>
+

@@ -1,0 +1,25 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "lalochcz@gmail.com",
+                "Name": "David Strobach"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Advanced web view widget with local file support. Features transparency, drag & drop, suspension mode, and custom security settings.",
+        "Icon": "text-html",
+        "Id": "com.github.laloch.plasmoid-html-view",
+        "Name": "HTML View",
+        "Version": "1.0",
+        "Website": "https://github.com/laloch/plasmoid-html-view"
+    },
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-MainScript": "ui/main.qml",
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-NotificationArea": "false",
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-DropMimeTypes": [
+        "text/html"
+    ]
+}
