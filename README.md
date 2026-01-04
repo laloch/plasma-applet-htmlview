@@ -4,6 +4,8 @@ A powerful and versatile HTML/Web view widget for KDE Plasma 6, designed for das
 
 **Key Differentiator:** Support for **Local Files** with drag-and-drop loading, making it perfect for custom local dashboards or HTML widgets.
 
+![Widget Screenshot](assets/screenshot01.png)
+
 ## Features
 
 *   **Local & Remote:** Seamlessly switch between local HTML files and remote URLs.
