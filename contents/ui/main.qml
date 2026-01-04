@@ -169,10 +169,9 @@ PlasmoidItem {
                 contextMenu.popup();
             }
 
-            onNavigationRequested: request => {
-                var url = request.url;
+            onNewWindowRequested: function(request) {
                 if (request.userInitiated) {
-                        Qt.openUrlExternally(url);
+                    Qt.openUrlExternally(request.requestedUrl);
                 }
             }
 
