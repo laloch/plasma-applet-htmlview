@@ -23,6 +23,12 @@ PlasmoidItem {
 
         property bool isSuspended: false
 
+        Component.onCompleted: {
+            if (Plasmoid.configuration.suspended) {
+                delayedSuspendTimer.start();
+            }
+        }
+
         function setUrl() {
             if (!(plasmoid.configuration.islocal ? plasmoid.configuration.file : plasmoid.configuration.url)) {
                 webView.url = Qt.resolvedUrl("placeholder.html");
@@ -79,6 +85,12 @@ PlasmoidItem {
             interval: Plasmoid.configuration.interval * 1000
             running: Plasmoid.configuration.interval > 0 && !isSuspended
             onTriggered: webView.reload()
+        }
+
+        Timer {
+            id: delayedSuspendTimer
+            interval: 30000
+            onTriggered: isSuspended = true
         }
 
         WebEngineView {
@@ -275,7 +287,11 @@ PlasmoidItem {
                     icon.name: isSuspended ? "media-playback-start" : "media-playback-pause"
                     text: isSuspended ? i18nc("@action:button", "Resume") : i18nc("@action:button", "Suspend")
                     display: QQC2.AbstractButton.IconOnly
-                    onClicked: isSuspended = !isSuspended
+                    onClicked: {
+                        isSuspended = !isSuspended;
+                        Plasmoid.configuration.suspended = isSuspended;
+                        delayedSuspendTimer.stop();
+                    }
                 }
 
                 QQC2.ToolButton {

@@ -26,6 +26,9 @@
         <entry name="ignoreCertificateErrors" type="Bool">
             <default>false</default>
         </entry>
+        <entry name="suspended" type="Bool">
+            <default>false</default>
+        </entry>
     </group>
     <group name="Appearance">
         <entry name="background" type="Int">
