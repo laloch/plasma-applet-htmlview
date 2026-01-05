@@ -22,6 +22,7 @@ A powerful and versatile HTML/Web view widget for KDE Plasma 6, designed for das
     *   Auto-hiding navigation toolbar (Back/Forward/Reload/Suspend).
     *   Toggleable scrollbars.
     *   Zoom/Scale control.
+    *   CTRL-click on a link opens the link target in the default browser.
 
 ## Installation
 
