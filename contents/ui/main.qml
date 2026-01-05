@@ -93,6 +93,13 @@ PlasmoidItem {
             onTriggered: isSuspended = true
         }
 
+        Timer {
+            id: deferredNavTimer
+            interval: 0 // Next tick
+            property string navUrl: ""
+            onTriggered: webView.navigate(navUrl)
+        }
+
         WebEngineView {
             id: webView
             property string lastErrorString: ""
@@ -121,7 +128,7 @@ PlasmoidItem {
             anchors.fill: parent
             //opacity: 0.4
             opacity: isSuspended ? 0.5 : 1.0
-            lifecycleState: isSuspended ? WebEngineView.Frozen : WebEngineView.Active
+            lifecycleState: isSuspended ? 2 : 1 // WebEngineView.Frozen : WebEngineView.Active
             zoomFactor: Plasmoid.configuration.scale / 100
             layer.enabled: true
             layer.smooth: true
@@ -134,7 +141,6 @@ PlasmoidItem {
             settings.navigateOnDropEnabled: false
             settings.screenCaptureEnabled: true
             settings.showScrollBars: Plasmoid.configuration.showScrollBars
-            profile.httpUserAgent: components.system.getUserAgent()
             profile.storageName: "plasmoid-html-view"
             backgroundColor: "transparent"
 
@@ -212,13 +218,9 @@ PlasmoidItem {
 
         onDrop: function(event) {
             var md = event.mimeData;
-            if (md.hasUrls) {
-                var urls = md.urls;
-                for (var i = 0, j = urls.length; i < j; ++i) {
-                    var url = urls[i];
-                    webView.navigate(url);
-                    break;
-                }
+            if (md.hasUrls && md.urls.length > 0) {
+                deferredNavTimer.navUrl = md.urls[0].toString();
+                deferredNavTimer.restart();
             }
             event.accept(Qt.CopyAction);
         }
