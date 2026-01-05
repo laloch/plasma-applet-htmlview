@@ -226,12 +226,6 @@ PlasmoidItem {
         }
     }
 
-    QQC2.BusyIndicator {
-        anchors.centerIn: parent
-        running: webView.loading
-        visible: running
-    }
-
     Rectangle {
         anchors.centerIn: parent
         width: parent.width * 0.8
