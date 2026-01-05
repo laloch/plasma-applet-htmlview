@@ -11,7 +11,7 @@
         "Icon": "text-html",
         "Id": "com.github.laloch.plasmoid-html-view",
         "Name": "HTML View",
-        "Version": "1.0.2",
+        "Version": "1.0.3",
         "Website": "https://github.com/laloch/plasmoid-html-view"
     },
     "X-Plasma-API": "declarativeappletscript",
