@@ -164,7 +164,7 @@ PlasmoidItem {
                     }
                 }
             }
-            onContextMenuRequested: {
+            onContextMenuRequested: function(request) {
                 request.accepted = true;
                 contextMenu.popup();
             }
@@ -206,11 +206,11 @@ PlasmoidItem {
             }
        }
 
-     DragDrop.DropArea {
+    DragDrop.DropArea {
         id: dropArea
         anchors.fill: parent
 
-        onDrop: {
+        onDrop: function(event) {
             var md = event.mimeData;
             if (md.hasUrls) {
                 var urls = md.urls;
